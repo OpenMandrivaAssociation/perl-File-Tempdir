@@ -11,6 +11,7 @@ License:	GPL
 Group:		Development/Perl
 Source:		%{module}-%{version}.tar.bz2
 Url:		http://search.cpan.org/module/RPM4
+Buildroot:	%{_tmppath}/%{name}-root
 BuildRequires: perl-devel >= 5.8.0
 Requires:	perl
 BuildArch: noarch
