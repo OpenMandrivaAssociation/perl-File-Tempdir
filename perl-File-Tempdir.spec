@@ -1,7 +1,7 @@
 %define module	File-Tempdir
 %define name	perl-%{module}
 %define version	0.02
-%define release %mkrel 4
+%define release %mkrel 6
 
 Name:		%{name}
 Version:	%{version}
