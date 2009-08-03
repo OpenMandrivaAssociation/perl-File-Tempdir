@@ -1,26 +1,24 @@
-%define module	File-Tempdir
-%define name	perl-%{module}
-%define version	0.02
-%define release %mkrel 6
+%define upstream_name	 File-Tempdir
+%define upstream_version 0.02
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	A module to make easier temporary directories deletion
 License:	GPL
 Group:		Development/Perl
-Source:		%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/module/RPM4
-Buildroot:	%{_tmppath}/%{name}-root
-BuildRequires: perl-devel >= 5.8.0
-Requires:	perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildArch: noarch
+Buildroot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 A module to make easier temporary directories deletion
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -40,4 +38,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{perl_vendorlib}/*
 %{_mandir}/*/*
-
